@@ -1,3 +1,3 @@
-module github.com/wadey/go-list-updates
+module github.com/wadey/go-diff-mod
 
-go 1.12
+go 1.13
