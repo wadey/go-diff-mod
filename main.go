@@ -106,28 +106,6 @@ Directions:
 	for _, m := range removed {
 		output("Removed", m)
 	}
-
-	// if !(*flagDirect && m.Indirect) && !(*flagIndirect && !m.Indirect) && m.Update != nil {
-	// 	m.Version = pseudoVersion.ReplaceAllString(m.Version, "$1")
-	// 	m.Update.Version = pseudoVersion.ReplaceAllString(m.Update.Version, "$1")
-
-	// 	if strings.HasPrefix(m.Path, "golang.org/x/") {
-	// 		m.httpPath = "github.com/golang/" + strings.TrimPrefix(m.Path, "golang.org/x/")
-	// 	} else {
-	// 		m.httpPath = m.Path
-	// 	}
-
-	// 	switch {
-	// 	case strings.HasPrefix(m.httpPath, "github.com/"):
-	// 		if *flagMarkdown {
-	// 			fmt.Printf("- [%s (%s -> %s)](https://%s/compare/%s...%s)\n", m.Path, m.Version, m.Update.Version, m.httpPath, m.Version, m.Update.Version)
-	// 		} else {
-	// 			fmt.Printf("%s\thttps://%s/compare/%s...%s\n", m.Path, m.httpPath, m.Version, m.Update.Version)
-	// 		}
-	// 	default:
-	// 		fmt.Printf("%s\t%s...%s\n", m.Path, m.Version, m.Update.Version)
-	// 	}
-	// }
 }
 
 func output(label string, m *Module) {
