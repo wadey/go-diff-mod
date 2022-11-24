@@ -112,6 +112,8 @@ func output(label string, m *Module) {
 	if !(*flagDirect && m.Indirect) && !(*flagIndirect && !m.Indirect) {
 		m.Version = pseudoVersion.ReplaceAllString(m.Version, "$1")
 
+		m.Version = strings.TrimSuffix(m.Version, "+incompatible")
+
 		if strings.HasPrefix(m.Path, "golang.org/x/") {
 			m.httpPath = "github.com/golang/" + strings.TrimPrefix(m.Path, "golang.org/x/")
 		} else {
