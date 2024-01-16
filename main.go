@@ -114,9 +114,14 @@ func output(label string, m *Module) {
 
 		m.Version = strings.TrimSuffix(m.Version, "+incompatible")
 
-		if strings.HasPrefix(m.Path, "golang.org/x/") {
+		switch {
+		case strings.HasPrefix(m.Path, "golang.org/x/"):
 			m.httpPath = "github.com/golang/" + strings.TrimPrefix(m.Path, "golang.org/x/")
-		} else {
+		case strings.HasPrefix(m.Path, "k8s.io/"):
+			m.httpPath = "github.com/kubernetes/" + strings.TrimPrefix(m.Path, "k8s.io/")
+		case m.Path == "google.golang.org/protobuf":
+			m.httpPath = "github.com/protocolbuffers/protobuf-go"
+		default:
 			m.httpPath = m.Path
 		}
 
